@@ -47,6 +47,7 @@ void loop() {
   //BtIncValue = 2 => shake2
   //BtIncValue = 3 => gotovo za mixvane
   //BtIncValue = 6 => mix
+  //BtIncValue = 7 => 10 rotations
   //BtIncValue = 4 => stop mix
   
   
@@ -104,7 +105,7 @@ void loop() {
     //   for(int x = 0; x < 8000; x++) {
     //     Serial.print("LOL");
     //     digitalWrite(stepPin,HIGH); 
-    //     delayMicroseconds(1000);    
+    //     delayMicroseconds(1000);    // by changing this time delay between the steps we can change the rotation speed
     //     digitalWrite(stepPin,LOW); 
     //     delayMicroseconds(1000);
     //     BtIncValue = 4;      
@@ -154,11 +155,24 @@ void loop() {
   // 200 pulsa = 1 zavurtane => i = 800 za 1 zavurtane
     // for(int x = 0; x < 8000; x++) {
     digitalWrite(stepPin,HIGH); 
-    delayMicroseconds(1200);    
+    delayMicroseconds(1200);    // by changing this time delay between the steps we can change the rotation speed
     digitalWrite(stepPin,LOW); 
     delayMicroseconds(1200); 
     // }     
     // BtIncValue = 4;  
+    // digitalWrite(dirPin,LOW);     
+  }
+
+  if(BtIncValue == 7){
+  digitalWrite(dirPin,HIGH); // lqvo -> dqsno
+  // 200 pulsa = 1 zavurtane => i = 800 za 1 zavurtane
+    for(int x = 0; x < 8000; x++) {
+    digitalWrite(stepPin,HIGH); 
+    delayMicroseconds(1200);    // by changing this time delay between the steps we can change the rotation speed
+    digitalWrite(stepPin,LOW); 
+    delayMicroseconds(1200); 
+    }     
+    BtIncValue = 4;  
     // digitalWrite(dirPin,LOW);     
   }
   // digitalWrite(in1, HIGH);
@@ -181,7 +195,7 @@ void loop() {
   // // 200 pulsa = 1 zavurtane => i = 800 za 1 zavurtane
   //  for(int x = 0; x < 8000; x++) {
   //   digitalWrite(stepPin,HIGH); 
-  //   delayMicroseconds(1000);    
+  //   delayMicroseconds(1000);    // by changing this time delay between the steps we can change the rotation speed
   //   digitalWrite(stepPin,LOW); 
   //   delayMicroseconds(1000); 
   // }
